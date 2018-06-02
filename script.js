@@ -239,10 +239,10 @@ function getAutoSuggestions(){
   let cleanedInput =  searchBar.value.toLowerCase().trim();
   document.getElementById('auto-suggestions').value == '';
   for(let i = 0; i < database.length; i++){
-    let cleanedRecordName = database[i].name.toLowerCase().trim();
+    let cleanedRecordName = database[i].team.toLowerCase().trim();
     if(cleanedRecordName.startsWith(cleanedInput) && cleanedRecordName.length > 0){
-      let matching = recordTeam.substring(0, searchBar.value.length);
-      let remaining = recordTeam .substring(searchBar.value.length);
+      let matching = team.substring(0, searchBar.value.length);
+      let remaining = team.substring(searchBar.value.length);
       let result = matching + "<b>" +remaining + "<b>";
       let button = document.createElement(button);
       button.innerHTML = result;
@@ -272,7 +272,7 @@ function activateSuggestionButton(button, record) {
 function getSuggestions(cleanedInput){
 let cleanedRecordName = [[],[]];
 for(i = 0; i < database.length; i++){
-  let cleanedRecordName = database[i].name.toLowerCase().trim();
+  let cleanedRecordName = database[i].team.toLowerCase().trim();
   if(cleanedRecordName.startsWith(cleanedInput) && cleanedInput.length > 0){
     display.appendChild(suggestions.push(database[i]));
   }
